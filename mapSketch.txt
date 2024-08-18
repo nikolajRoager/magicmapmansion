@@ -1,0 +1,35 @@
+                        ++........++........++........++........++........++........++........++........++
+                        +                                                                                +
+                        :                                                                                :
+                        :                                                                                :
+                        :                                                                                :
+                        +                                                                                +
+                        +                                                                                +
+                        :                                                                                :
+                        :                                                                                :
+                        :                                                                                :
+                        +                                                                                +
+                        +                                                                                +
+                        :      32x82 window (30x80 inside)                                               :
+                        :                                                                                :
+                        :                                                                                :
+                        +                                                                                +
+                        +                                                                                +
+                        :                                                                                :
+                        :                                                                                :
+                        :                                                                                :
+                        +                                                                                +
+                        +                                                                                +
+                        : <-24x24                                                                        :
+########################:                                                                                :
+ Legend                 : <-1                                                                            :
+= || = ||:Open 1m doors +                                                                                +
+< /\ > \/:Opem 2m door  +                                                                                +
+ @       :Closed  doors : <-7x24                                                                         :
+  -- |   :2m wall       :                                                                                :
+ "Name"  :Room name     :                                                                                :
+ "????"  :unknown room  +                                                                                +
+ {Name}  :Your room     ++........++........++........++........++........++........++........++........++
+> Commands: ":close map" "floor up/down" "quit" (close game)
+>  Move your room with: ":slide north/south/east/west/up/down" ":rotate left/right" ":mirror west/north"
+:

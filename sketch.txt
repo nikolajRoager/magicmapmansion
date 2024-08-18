@@ -1,0 +1,38 @@
+   Log                          # Room view                                                              #.
+ 0>You are in a big ball-room   #                                                                        #.
+ 1>with a richly decorated      #                                                                        #.
+ 2>baroque ceiling, depicting   #                                                                        #.
+ 3>scenes from greek mythology  #                                                                        #.
+ 4>                             #                                                                        #.
+ 5>The evening sun shine through#                                                                        #.
+ 6>The window in the east wall  #                                                                        #.
+ 7>You can can see the garden 1 #                                                                        #.
+ 8>floor below                  #                                                                        #.
+ 9>                             #                                                                        #.
+10>A rococo vase stands on an   #                                                                        #.
+11>Ornamented wood table painted#                                                                        #.
+12>to look like marble          #                                                                        #.
+13>                             #                                                                        #.
+14>A faded portrait of a knight #                                                                        #.
+15>Hangs on the dull-green wall #                                                                        #.
+16>                             #                                                                        #.
+17>A grand glass "door C" is in #                                                                        #.
+18>the west wall. A small wooden#                                                                        #.
+19>"door A" in the north wall   #                                                                        #.
+20>and a gold framed small      #                                                                        #.
+21>"door B" in the south wall   #                                                                        #.
+22>                             # //24x72 fixed size                                                     #.
+23>Sumary:                      #                                                                        #.
+24>Items: vase, knight portrait #                                                                        #.
+25>Exits: door A, door B, door C#                                                                        #.
+##########################################################################################################.
+Command list:
+   "inventory" "take [room item]" "use [item]" "use [item] on [item]" "examine [item]" "examine [exit]"
+    "examine room" "map" "enter [exit]" "quit" "hint"
+(Here [item] can be any item name in the room, or inventory. [exit] is any exit name)
+:
+
+
+
+Minimum width = 32+72+1
+Minimum height= 29

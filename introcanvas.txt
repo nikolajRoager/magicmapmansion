@@ -1,0 +1,13 @@
+clear
+line 0 0 -1 0 #
+line 0 0 0 -1 #
+line -1 -1 -1 0 #
+line -1 -1 0 -1 #
+
+texfile 1 1 painting_knight.txt
+
+
+texboxstring -6 2 Any words typed, will go into the log
+
+
+texstring -2 16 At any time, type ":quit" to force quit

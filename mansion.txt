@@ -1,0 +1,92 @@
+newroom
+name the entrance
+startdsc
+    You are standing in the entrance hall in a late baroque mansion NEWLINE
+    NEWLINE
+    The grand 2m wide white-painted "door A" in the outer wall has carvings of the stag of house Ørild, and the lion of house Weißburg NEWLINE
+    NEWLINE
+    Opposite to this, is another 2m "door B" with a golden leaf-pattern, flanked by to paintings: the first is a portrait of the late baroness Ørild, the second is a note from the developer. NEWLINE
+    NEWLINE
+    IF YOU JUST STARTED, I SUGGEST WRITING :examine developer message
+    NEWLINE
+    NEWLINE
+    In the western wall, there is a 1m wide "door C", and opposite that, a "staircase D" of elegantly carved wood, painted to look like marple. Behind this, a small 1m "door E", likely for the servants, is discretely tugged away.
+enddsc
+x 3
+y 2
+floor 0
+blocks 1 2
+1 1
+exit 0 0 NORTH 2
+name outer door
+exit 0 0 SOUTH 2
+name gilded door
+exit 0 0 WEST 1
+name white painted door
+exit 0 1 UP 1
+name grand staircase
+exit 0 1 EAST 1
+name hidden servant's door
+endroom
+newroom
+name Grand ballroom
+startdsc
+You are in a big ball-room with a richly decorated baroque ceiling, depicting scenes from Homor's Odyssey mythology.
+NEWLINE
+NEWLINE
+The room is illuminated by the light from two giant windows in the south wall
+NEWLINE
+NEWLINE
+From the dull-green walls, 6 faded paintings of former owners of this mansion and their friends looks down on the dance-floor.
+NEWLINE
+NEWLINE
+In the north wall is a grand 2m wide "door A" with a golden leaf-pattern. Next two this stands a very large a rococo vase stands on an Ornamented wood table painted to look like marble.
+NEWLINE
+NEWLINE
+In the east and west walls are two doors "door B" and "door C" with golden leaf-shaped handles.
+NEWLINE
+NEWLINE
+A much more discrete "door D" for servants is placed in the east end of the north wall, behind the vase.
+enddsc
+x 3
+y 3
+floor 0
+blocks 2 3
+1 1 1
+1 1 1
+exit 0 0 NORTH 2
+name gilded door
+exit 1 2 EAST 1
+name green painted door
+exit 1 0 WEST 1
+name green painted door
+exit 0 2 NORTH 1
+name servant's door
+endroom
+newroom
+name Kitchen
+startdsc
+You are in a dark and scarcely illuminated L-shaped kitchen, a very utilitarian room with very little decorations, other than the richly decorated porcelain plates and bowls and silver cutlery.
+NEWLINE
+NEWLINE
+Though you are surrounded by late 18th century kitchen equipment, you don't want to pick anything up, because programming that would take too long sorry.
+NEWLINE
+NEWLINE
+All the doors in this room are labeled: "door A"is labeled ball-room, "door B" is entrance, "door C" is banquet-hall, and "door D" is gallery. NEWLINE
+... Of course, that is only where these doors normally goes...
+enddsc
+x 5
+y 2
+floor 0
+blocks 2 2
+1 1
+0 1
+exit 0 0 SOUTH 1
+name ball-room door
+exit 0 0 WEST 1
+name entrance door
+exit 0 1 North 1
+name gallery door
+exit 1 1 SOUTH 1
+name banquet door
+endroom
