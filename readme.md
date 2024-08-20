@@ -146,8 +146,6 @@ Rooms can not pass through each other, rooms can only slide if they are touch an
 Some of the puzzles have multiple solutions ... and some of them are pretty tough.
 
 
-To move the rom YOU are in to another
-
 
 Walkthrough, (spoilers)
 ----------------
