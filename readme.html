@@ -68,18 +68,15 @@ automatic size-detection of the terminal, so you will have to manually
 adjust it.</p>
 <p>In POWERSHELL You can do this by right-clicking the top bar of the
 window and clicking properties, then click the tab layout. Look at the
-box labeled “window size”, you can read the width and height here (make
-sure the width is greater than 106, and height is greater than 34). For
-example, on my Windows testing computer a full-screen powershell has
-width 189 height 44.</p>
-<p>Now close the properties windows and type</p>
-<p>If you type <code>.\magicmapmansion_WINDOWS.exe 44 189</code> or
-(<code>.\magicmapmansion_WINDOWS.exe 44 189</code>), the game will start
-with this size. (Obviously you need to replace 44 and 189 with your
-height and your width, the height goes before the width)</p>
+box labeled “window size”, you can read the width and height here. For
+the best experience, I recommend setting it to width 108, and height 35.
+FULLSCREEN DOES NOT WORK WELL</p>
+<p>Now close the properties windows and
+type:<code>.\magicmapmansion_WINDOWS.exe</code> or
+(<code>.\magicmapmansion_WINDOWS.exe</code>) This starts tge gane</p>
 <p>you COULD also start the game you can doubleclick
-<code>magicmapmansion_WINDOWS.exe</code>, but I do not recommend that,
-as it uses the very small minimum size.</p>
+<code>magicmapmansion_WINDOWS.exe</code>, but I don’t know if that
+always work</p>
 <p>On Linux, the size would have been spotted automatically</p>
 <p>You can also recompile the C++ code. But I don’t know if that is
 possible on Windows. I have only compiled this on Linux (using mingw to
@@ -105,19 +102,75 @@ folder, and run <code>cmake -Bbuild</code>, followed by
 <p>You will need to execute this file, while your terminal is still in
 the projects root folder, write: <code>build/bin/maptrial</code> in your
 terminal, the game should start.</p>
-<h2 id="skripler-engine-disclaimer">Skripler engine DISCLAIMER</h2>
-<p>Skripler is a terminal based ascii UI library for C++, developer for
-use in the GMTK Game Jam 2024.</p>
-<p>Skripler is less capable than NCurses, but is hopefully faster to
-work in (important for a JAM), and supports Unicode better</p>
-<p>Skripler renders tiles to the terminal, tiles can be text,
-split-screens, textures, or canvases.</p>
-<p>Skripler reads lines terminated by enter, unlike NCurses, Skripler
-does not support “real-time” key presses.</p>
-<p>Skripler has been developer PRIOR to the start of the JAM, this does
-not go against the rule, as it is no different from using a third party
-engine.</p>
-<p>If I remember, I may link the Skripler github repository here.</p>
+<h2 id="how-to-play-once-it-is-started">How to play (Once it is
+started)</h2>
+<p>The game window could look something like this:</p>
+<pre><code>You are standing in the entrance  ++........++........++........++........++........++........++........++
+hall in a late baroque mansion,   ++--------++--------+          +--------+          +--------++--------++
+with dusty white-painted walls.   :| Library          |          | Pavilion          | Eastwing| Ågesen |:
+                                  :|                  =          =        |          |        ==        |:
+Items and doors: there is a       :|                  |          |        |          |        ||        |:
+staircase (&quot;exit E&quot;) and 4 doors  ++                  +          +--------+          +        ++--------++
+(&quot;exit A&quot;,&quot;exit B&quot;,&quot;exit C&quot;,&quot;exit ++                  +                              +         +-------.++
+D&quot;) a &quot;portrait&quot; of the late      :|                  |                              |               .::|:
+baroness Josefine and a painting  :|                  |                              |                  |:
+with a &quot;developer message&quot;, there :|                  |                              |                  |:
+is also a red &quot;bloodstain&quot; on the ++---||---++---||---+                              +--------++---||---++
+floor. There is a paper &quot;note&quot; on ++---||---++---||---++--------++---||AE.++--------++--------++---||---++
+the west door &quot;exit C&quot;. HINT: try :| Study  || Corridor2 the entrance  .::|| Kitchen          || Gallery|:
+typing &quot;examine developer         :|        ==        =&amp; YOU              ==                  ||        |:
+message&quot;.                         :|        ||        |C                  D|                  ||        |:
+                                  ++        ++        ++---||B--++--------++--------+         ++        ++
+                                  ++        ++        ++---||---++--------++--------++        ++        ++
+                                  :|        ||        ||           Grand ballroom   ||        1|        |:
+                                  :|        ||        ||                            ==        &amp;=        |:
+                                  :|        ||        ||                            ||        ||        |:
+                                  ++--------++        ++                            ++---||---++---||---++
+                                  ++-----.--++        ++                            ++---||---++---1&amp;---++
+                                  :| B.  ::.|3        2|                            || Banquet hall     |:
+##################################:|        =&amp;        &amp;=                            ==                  |:
+ Legend                           :|        ||        ||                            ||                  |:
+=A ||A:door with id A             ++--------++--------++--------++--------++--------++--------++--------++
+1&amp;    :locked door,id 1           +                                                                      +
+   .  :                           :                                                                      :
+ .::  :exit up/down               :                                                                      :
+ -- | :1m wall                    :                                                                      :
+Name  :Room name                  +                                                                      +
+YOU   :You                        ++........++........++........++........++........++........++........++
+Commands: change map &quot;floor up/down&quot;| end game &quot;quit&quot;| use door &quot;enter [exit letter]&quot;| get help &quot;hint&quot;
+Move room &quot;slide north/south/east/west&quot; | &quot;undo&quot; | Explore with &quot;examine room&quot;/&quot;examine [item]&quot;
+:</code></pre>
+<p>There are 2 main windows in the game: A map to the right, a textlog
+to the left. The textlog prints the result of your commands, and the map
+shows you where you are.</p>
+<p>Below this you see the valid commands, and below that you have a :,
+where you can start typing commands. (Finish with enter). Arrowkeys or
+backspace MAY OR MAY NOT be supported, it all depends on your terminal.
+Autocomplete is not.</p>
+<p>One of the most important commands is “enter” which allows you to
+move between rooms:</p>
+<p>To the left, you see the map legend, as you see | and – are walls,
+and = and || are doors, the letter next to the door is the ID of that
+door. If the door has a &amp; symbol, it means it is locked, the number
+next to it tells you what key number it is locked by.</p>
+<p>You can move between rooms if they have doors facing each other,
+looking like == or :</p>
+<p>|| ||</p>
+<p>If either one of the doors are locked, you can not pass through.</p>
+<p>“examine” which allows you to get the item description for the room
+(write “examine room”) or an item (write “examine itemname”, if you
+write “examine room” or when you enter a room, you get the list of all
+Items and Doors, with all item names.</p>
+<p>This is ESSENTIAL to find clues to where the KEYS are hidden.</p>
+<p>To bypass locks, you can slide the room you are in using
+<code>slide north</code>, <code>slide south</code>,
+<code>slide west</code> and one more which shall not be named.</p>
+<p>Rooms can not pass through each other, rooms can only slide if they
+are touch another room (must be touching both at the start and end of
+the move) and only if you physically are in them.</p>
+<p>Some of the puzzles have multiple solutions … and some of them are
+pretty tough.</p>
+<p>To move the rom YOU are in to another</p>
 <h2 id="walkthrough-spoilers">Walkthrough, (spoilers)</h2>
 <p>In the entrance, a note tells you that key 2 is in the Pavilion. It
 will take a long time to get there.</p>

@@ -52,13 +52,11 @@ now you can enter other folders by writing `cd .\foldername\`. If you have the f
 
 Now you can start the game, the windows version does not support automatic size-detection of the terminal, so you will have to manually adjust it.
 
-In POWERSHELL You can do this by right-clicking the top bar of the window and clicking properties, then click the tab layout. Look at the box labeled "window size", you can read the width and height here (make sure the width is greater than 106, and height is greater than 34). For example, on my Windows testing computer a full-screen powershell has width 189 height 44.
+In POWERSHELL You can do this by right-clicking the top bar of the window and clicking properties, then click the tab layout. Look at the box labeled "window size", you can read the width and height here. For the best experience, I recommend setting it to width 108, and height 35.  FULLSCREEN DOES NOT WORK WELL
 
-Now close the properties windows and type
+Now close the properties windows and type:`.\magicmapmansion_WINDOWS.exe`  or (`.\magicmapmansion_WINDOWS.exe`) This starts tge gane
 
-If you type `.\magicmapmansion_WINDOWS.exe 44 189`  or (`.\magicmapmansion_WINDOWS.exe 44 189`), the game will start with this size. (Obviously you need to replace 44 and 189 with your height and your width, the height goes before the width)
-
-you COULD also start the game you can doubleclick `magicmapmansion_WINDOWS.exe`, but I do not recommend that, as it uses the very small minimum size.
+you COULD also start the game you can doubleclick `magicmapmansion_WINDOWS.exe`, but I don't know if that always work
 
 On Linux, the size would have been spotted automatically
 
@@ -81,20 +79,74 @@ CMake makes compiling easy, just open your terminal in the projects folder, and 
 
 You will need to execute this file, while your terminal is still in the projects root folder, write: `build/bin/maptrial` in your terminal, the game should start.
 
+How to play (Once it is started)
+---------------
+The game window could look something like this:
 
-Skripler engine DISCLAIMER
-------------
-Skripler is a terminal based ascii UI library for C++, developer for use in the GMTK Game Jam 2024.
+    You are standing in the entrance  ++........++........++........++........++........++........++........++
+    hall in a late baroque mansion,   ++--------++--------+          +--------+          +--------++--------++
+    with dusty white-painted walls.   :| Library          |          | Pavilion          | Eastwing| Ågesen |:
+                                      :|                  =          =        |          |        ==        |:
+    Items and doors: there is a       :|                  |          |        |          |        ||        |:
+    staircase ("exit E") and 4 doors  ++                  +          +--------+          +        ++--------++
+    ("exit A","exit B","exit C","exit ++                  +                              +         +-------.++
+    D") a "portrait" of the late      :|                  |                              |               .::|:
+    baroness Josefine and a painting  :|                  |                              |                  |:
+    with a "developer message", there :|                  |                              |                  |:
+    is also a red "bloodstain" on the ++---||---++---||---+                              +--------++---||---++
+    floor. There is a paper "note" on ++---||---++---||---++--------++---||AE.++--------++--------++---||---++
+    the west door "exit C". HINT: try :| Study  || Corridor2 the entrance  .::|| Kitchen          || Gallery|:
+    typing "examine developer         :|        ==        =& YOU              ==                  ||        |:
+    message".                         :|        ||        |C                  D|                  ||        |:
+                                      ++        ++        ++---||B--++--------++--------+         ++        ++
+                                      ++        ++        ++---||---++--------++--------++        ++        ++
+                                      :|        ||        ||           Grand ballroom   ||        1|        |:
+                                      :|        ||        ||                            ==        &=        |:
+                                      :|        ||        ||                            ||        ||        |:
+                                      ++--------++        ++                            ++---||---++---||---++
+                                      ++-----.--++        ++                            ++---||---++---1&---++
+                                      :| B.  ::.|3        2|                            || Banquet hall     |:
+    ##################################:|        =&        &=                            ==                  |:
+     Legend                           :|        ||        ||                            ||                  |:
+    =A ||A:door with id A             ++--------++--------++--------++--------++--------++--------++--------++
+    1&    :locked door,id 1           +                                                                      +
+       .  :                           :                                                                      :
+     .::  :exit up/down               :                                                                      :
+     -- | :1m wall                    :                                                                      :
+    Name  :Room name                  +                                                                      +
+    YOU   :You                        ++........++........++........++........++........++........++........++
+    Commands: change map "floor up/down"| end game "quit"| use door "enter [exit letter]"| get help "hint"
+    Move room "slide north/south/east/west" | "undo" | Explore with "examine room"/"examine [item]"
+    :
 
-Skripler is less capable than NCurses, but is hopefully faster to work in (important for a JAM), and supports Unicode better
+There are 2 main windows in the game: A map to the right, a textlog to the left. The textlog prints the result of your commands, and the map shows you where you are.
 
-Skripler renders tiles to the terminal, tiles can be text, split-screens, textures, or canvases.
+Below this you see the valid commands, and below that you have a :, where you can start typing commands. (Finish with enter). Arrowkeys or backspace MAY OR MAY NOT be supported, it all depends on your terminal. Autocomplete is not.
 
-Skripler reads lines terminated by enter, unlike NCurses, Skripler does not support "real-time" key presses.
+One of the most important commands is "enter" which allows you to move between rooms:
 
-Skripler has been developer PRIOR to the start of the JAM, this does not go against the rule, as it is no different from using a third party engine.
+To the left, you see the map legend, as you see | and -- are walls, and = and || are doors, the letter next to the door is the ID of that door. If the door has a & symbol, it means it is locked, the number next to it tells you what key number it is locked by.
 
-If I remember, I may link the Skripler github repository here.
+You can move between rooms if they have doors facing each other, looking like == or :
+
+   ||
+   ||
+
+If either one of the doors are locked, you can not pass through.
+
+
+"examine" which allows you to get the item description for the room (write "examine room") or an item (write "examine itemname", if you write "examine room" or when you enter a room, you get the list of all Items and Doors, with all item names.
+
+This is ESSENTIAL to find clues to where the KEYS are hidden.
+
+To bypass locks, you can slide the room you are in using `slide north`, `slide south`, `slide west` and one more which shall not be named.
+
+Rooms can not pass through each other, rooms can only slide if they are touch another room (must be touching both at the start and end of the move) and only if you physically are in them.
+
+Some of the puzzles have multiple solutions ... and some of them are pretty tough.
+
+
+To move the rom YOU are in to another
 
 
 Walkthrough, (spoilers)
