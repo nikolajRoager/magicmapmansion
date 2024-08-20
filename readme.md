@@ -1,8 +1,88 @@
-Magic Mansion Map
+Magic Mansion Map: A Unicode Terminal game
 ===============
+WALKTHROUGH AT THE BOTTOM OF THIS FILE.
+
+You are about to play a text-based puzzle game in your terminal, about a Borneo Orangutan in a late Baroque/Rococo mansion/palace. You are tasked with finding a hidden document in this mansion.
+
+There is also a murder mystery; solving it is not required to win.
+
+The rooms in the mansion can be re-arranged using your Magic Map. Use this to bypass locks, find clues, and find keys to unlock the mansion.
+
+THE GAME SHOULD NEVER ASK FOR PERMISSION TO WRITE FILES
+
+BEWARE OF BUGS.
+
+How this fits the theme: Build to scale
+------------
+You are using the building plans, of a building to explore the building, and rearrange the rooms, the size and shape of the rooms is central to solving the puzzles.
 
 
-Walkthrough, (Puzzle spoiler, )
+How to play a terminal game
+------------
+If the folder `build` has been included in the download DO NOT RUN THE BINARIES IN THERE. It is a temporary debugging build made for Linux DO NOT RUN ON WINDOWS. the `build` folder should not have been part of the upload.
+
+You have to run this game in your terminal (Windows, Mac and Linux instructions for how to turn on the game).
+
+This is not an ASCII game: The game uses and supports Unicode characters. You need to make sure that your terminal is using a font, which at the very least support these characters: æ, ø, å, ß, ¤. You also need to make sure your terminal is using a MONOSPACED font: i.e. a font where all characters have the same width and height. Otherwise the display will be all messed up.
+
+You also need to make sure that your terminal is at least 34 characters TALL and 106 characters WIDE (more is better). If the terminal is too small the terminal will show a message like this:
+
+    screen too small
+    23x80 need 34x106
+    change fontsize
+    or resize
+
+
+You can resize the terminal as the game runs, but please don't do that while you are typing a command.
+
+
+
+
+Starting the game on Windows 10
+--------
+I have not tested windows 11.
+
+You have to run this game in a terminal, on windows 10 I recommend windows powershell (bundled with Windows 10). I recommend changing the background color to black, rather than the default blue if you haven't already.
+
+The included executable `maptrial.exe` should work on Windows.
+
+... TEMP
+
+You can also recompile the C++ code.
+
+I use only C++ standard libraries (plus windows or unix libraries to get Terminal size) so you only need a C++ compiler, I have used MinGW's Windows port of the Gnu G++ compiler. I do not know if Visual Studio compilers work.
+
+I do not know if the included CMakelist.txt file allows CMake can compile it on windows, I have only used in on Linux.
+
+Starting the game on Linux (or Mac)
+--------
+So you have realized that Windows is bad! Great! To show your superiority over Windows users, you will have to compile the C++ code, I use standard libraries (plus windows or unix libraries to get Terminal size) so you only need a compiler, I used g++. You should also have CMake installed, to build the project.
+
+The game is made and tested on Arch Linux, I do not own a Mac, but Mac and Linux are very similar under the hood so the Linux code should compile and run on Mac.
+
+g++ and CMake are available on Mac, I recommend using the Homebrew package manager (If you don't feel comfortable installing these things on Mac, you may want to skip this game, or use the windows version)
+
+CMake makes compiling easy, just open your terminal in the projects folder, and run `cmake -Bbuild`, followed by `cmake --build build` this builds the executable in the file `build/bin/maptrial`
+
+You will need to execute this file, while your terminal is still in the projects root folder, write: `build/bin/maptrial` in your terminal, the game should start.
+
+
+Skripler engine DISCLAIMER
+------------
+Skripler is a terminal based ascii UI library for C++, developer for use in the GMTK Game Jam 2024.
+
+Skripler is less capable than NCurses, but is hopefully faster to work in (important for a JAM), and supports Unicode better
+
+Skripler renders tiles to the terminal, tiles can be text, split-screens, textures, or canvases.
+
+Skripler reads lines terminated by enter, unlike NCurses, Skripler does not support "real-time" key presses.
+
+Skripler has been developer PRIOR to the start of the JAM, this does not go against the rule, as it is no different from using a third party engine.
+
+If I remember, I may link the Skripler github repository here.
+
+
+Walkthrough, (spoilers)
 ----------------
 In the entrance, a note tells you that key 2 is in the Pavilion. It will take a long time to get there.
 
@@ -126,90 +206,3 @@ From here the game is almost done, go to the library and slide it east, in the p
 From here you can enter the chappel, by essentially backtracing the steps you took to move the entrance back under the balcony. From there you can go up, into the chappel, get the basement key, and go back down and enter the basement. Go down in the basement, here you will find the key to the Baroness' room.
 
 Going back up and entering that room finishes the game.
-
-
-Devlog
-========
-Idea: A text-based puzzle/escape room game, about a Borneo Orangutan in a late Baroque/Rococo mansion/palace.
-
-The rooms in the mansion can be re-arranged using the Magic Map.
-
-This must be used to solve various puzzles.
-
-
-To gate progress/learning: First the player can only translate rooms, then the player becomes able to rotate
-Finally the player gains the ability to mirror rooms.
-
-Rooms are only available, as they are added to the map.
-
-Initial goals
--------
-Saturday: Make map engine, allowing rooms to be loaded and displayed on the map, shifted, and described in the room view.
-
-Sunday: Working inventory system, and interaction with items and exits
-
-Monday:
-
-
-Map visuals
---------
-The map is a grid of 5 by 5 m blocks, Each Char represents one meter height and 2 m width!
-
-The outer edge of the map looks like this:
-
-
-
-    ++........++........++....++
-    +                          +
-    :                          :
-    :                          :
-    :                          :
-    +                          +
-    +                          +
-    :                          :
-    :                          :
-    :                          :
-    +                          +
-    ++........++........++....++
-
-A legend displayed, looking like this:
-
-
-    /Legend~~~~~~~~~~~~~~~~~~
-    \< ^ > v : Open 1m doors
-    /@       : Closed  doors
-    \ -- |   : 2m wall
-    /"Chapel": Room name
-    \"??????": unknown room
-    / X      : You are here
-
-A room on the map could look like this
-
-    +---/\--.+
-    |     .:C|
-    <Entrance>
-    |        |
-    +---\/---+
-
-The rooms are declared in blocks, each block-side can have 0,1,2 meter doors, which may be locked from this side.
-
-Rooms can slide leftright or updown, but may not intersect, or be "loose"
-
-
-Skripler engine
-------------
-Skripler is a terminal based ascii UI library for C++, developer for use in the GMTK Game Jam 2024.
-
-Skripler is less capable than NCurses, but is hopefully faster to work in (important for a JAM), and is available on Windows.
-
-Skripler renders windows to the terminal, windows can be text tables, textures textures, or canvases. Canvases can contain other windows.
-
-Skripler reads lines terminated by enter, unlike NCurses, Skripler does not support "real-time" key presses.
-
-Skripler has been developer PRIOR to the start of the JAM, this does not go against the rule, as it is no different from using a third party engine.
-
-If I remember, I may link the Skripler github repository here.
-
-WARNING
--------
-Skripler development has been RUSHED, test driven practices have NOT been used. Bugs are bound to be as plentiful as some place which has a lot of bugs.
