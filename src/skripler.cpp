@@ -24,8 +24,8 @@ namespace skripler
     bool running=false;
     bool screen_too_small=false;
 
-    int h;
-    int w;
+    int h=0;
+    int w=0;
 
     std::thread resizeThread;
     std::shared_ptr<Tile> myTile;
@@ -153,8 +153,10 @@ namespace skripler
         }
     }
 
-    void start(std::shared_ptr<Tile> baseTile)
+    void start(std::shared_ptr<Tile> baseTile,int _h, int _w)
     {
+        w=_w;
+        h=_h;
         if (!running)
         {
             running=true;

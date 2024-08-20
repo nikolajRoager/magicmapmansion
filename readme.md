@@ -2,6 +2,8 @@ Magic Mansion Map: A Unicode Terminal game
 ===============
 WALKTHROUGH AT THE BOTTOM OF THIS FILE.
 
+PLEASE READ SETUP GUIDE ON WINDOWS OR LINUX OR MAC BEFORE RUNNING.
+
 You are about to play a text-based puzzle game in your terminal, about a Borneo Orangutan in a late Baroque/Rococo mansion/palace. You are tasked with finding a hidden document in this mansion.
 
 There is also a murder mystery; solving it is not required to win.
@@ -25,16 +27,9 @@ You have to run this game in your terminal (Windows, Mac and Linux instructions 
 
 This is not an ASCII game: The game uses and supports Unicode characters. You need to make sure that your terminal is using a font, which at the very least support these characters: æ, ø, å, ß, ¤. You also need to make sure your terminal is using a MONOSPACED font: i.e. a font where all characters have the same width and height. Otherwise the display will be all messed up.
 
-You also need to make sure that your terminal is at least 34 characters TALL and 106 characters WIDE (more is better). If the terminal is too small the terminal will show a message like this:
+You also need to make sure that your terminal has the correct size for the game to work.
 
-    screen too small
-    23x80 need 34x106
-    change fontsize
-    or resize
-
-
-You can resize the terminal as the game runs, but please don't do that while you are typing a command.
-
+The Linux version IS the superior version (it supports automatic terminal resize detection), and Linux terminals are generally better than Windows terminals.
 
 
 
@@ -43,6 +38,10 @@ Starting the game on Windows 10
 I have not tested windows 11.
 
 You have to run this game in a terminal, on windows 10 I recommend windows powershell (bundled with Windows 10). I recommend changing the background color to black, rather than the default blue if you haven't already.
+
+THE WINDOWS VERSION DO NOT SUPPORT AUTOMATIC SIZE DETECTION! (The Linux version does, because Linux is better at terminals than windows)
+
+
 
 The included executable `maptrial.exe` should work on Windows.
 

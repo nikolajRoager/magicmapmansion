@@ -51,6 +51,7 @@ namespace skripler
 
     void BisectTile::setSize(uint32_t _h, uint32_t _w)
     {
+
         w=_w;
         h=_h;
         uint32_t split_size = leftright ? w : h;
@@ -95,7 +96,7 @@ namespace skripler
 
         //Then add the border back
         if (border)
-            --split_size;
+            ++split_size;
     }
 
     void BisectTile::update()
@@ -230,7 +231,11 @@ namespace skripler
             ++out_line;
         }
         for (; out_line<h; ++out_line)
+        {
             myTex.content[out_line]=std::string(w,' ');
+
+
+        }
 
 
 

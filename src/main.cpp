@@ -6,11 +6,12 @@
 #include<fstream>
 
 
-int main()
+int main(int argc, char* argv[])
 {
-    //First thing first, print info splashscreen
-    //TEMP DO IT
 
+
+    int start_h = argc>1 ? std::stoi(std::string(argv[1])) : h_min;
+    int start_w = argc>2 ? std::stoi(std::string(argv[2])) : w_min;
 
     //Then, set up the two windows we will be using:
 
@@ -22,7 +23,7 @@ int main()
 
 
     //The split of textlog and legend with a border
-    std::shared_ptr<skripler::BisectTile> log_and_legend_split_tile = std::make_shared<skripler::BisectTile>(32, 34, 24, 34, false,true,-8);
+    std::shared_ptr<skripler::BisectTile> log_and_legend_split_tile = std::make_shared<skripler::BisectTile>(32, 34, 22, 8, false,true,-8);
     map_split_tile->set_first(log_and_legend_split_tile);
 
     //The main tile with the map, this has fixed size
@@ -80,7 +81,7 @@ int main()
         {
             if (input.compare("newroom")==0)
            {
-                std::cout<<"Load room"<<std::endl;
+                std::cout<<"Loading room "<<std::endl;
                 rooms.push_back(Room(mansion_file));
             }
             else if (input.compare("hintstart")==0)
@@ -98,6 +99,8 @@ int main()
                 }
 
             }
+
+
         }
         mansion_file.close();
 
@@ -137,7 +140,7 @@ int main()
     std::deque<gamestate> oldStates;
     oldStates.push_back(gameState);
 
-    skripler::start(map_base_tile);
+    skripler::start(map_base_tile,start_h,start_w);
 
 
     map_log->printwords(rooms[gameState.yourRoom].getDescription());
@@ -410,7 +413,6 @@ int main()
                                 bool has_collision=false;
                                 for (std::pair<int,int>& trg : slide_targets)
                                 {
-                                    std::cout<<trg.first<<" "<<trg.second<<std::endl;
                                     for (size_t j = 0; j <rooms.size(); ++j)
                                     {
                                         if (j!=gameState.yourRoom)
@@ -451,7 +453,6 @@ int main()
                                 }
                                 else
                                 {
-                                    std::cout<<"\a"<<std::flush;
                                     map_log->printwords({"To","be","able","to","slide"});
 
                                     if (dir==WEST || dir==EAST)
@@ -474,7 +475,6 @@ int main()
                         }
                         else
                         {
-                            std::cout<<"\a"<<std::flush;
                             map_log->printwords({"To","be","able","to","slide"});
 
                             if (dir==WEST || dir==EAST)
