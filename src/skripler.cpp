@@ -63,7 +63,7 @@ namespace skripler
 
     void display()
     {
-        if (running)
+        if (running && !screen_too_small)
         {
 
             myTile->update();

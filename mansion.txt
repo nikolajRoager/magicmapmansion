@@ -1,92 +1,819 @@
 newroom
 name the entrance
 startdsc
-    You are standing in the entrance hall in a late baroque mansion NEWLINE
+    You are standing in the entrance hall in a late baroque mansion, with dusty white-painted walls. NEWLINE
     NEWLINE
-    The grand 2m wide white-painted "door A" in the outer wall has carvings of the stag of house Ørild, and the lion of house Weißburg NEWLINE
-    NEWLINE
-    Opposite to this, is another 2m "door B" with a golden leaf-pattern, flanked by to paintings: the first is a portrait of the late baroness Ørild, the second is a note from the developer. NEWLINE
-    NEWLINE
-    IF YOU JUST STARTED, I SUGGEST WRITING :examine developer message
-    NEWLINE
-    NEWLINE
-    In the western wall, there is a 1m wide "door C", and opposite that, a "staircase D" of elegantly carved wood, painted to look like marple. Behind this, a small 1m "door E", likely for the servants, is discretely tugged away.
+    Items and doors: there is a staircase ("exit E") and 4 doors ("exit A","exit B","exit C","exit D") a "portrait" of the late baroness Josefine and a painting with a "developer message", there is also a red "bloodstain" on the floor. There is a paper "note" on the west door "exit C". HINT: try typing "examine developer message".
 enddsc
-x 3
+x 2
 y 2
 floor 0
 blocks 1 2
 1 1
-exit 0 0 NORTH 2
+exit 0 1 NORTH 0
 name outer door
-exit 0 0 SOUTH 2
+startdsc
+The grand white-painted door in the outer wall has carvings of two royal emblems: the stag of house Hørby, and the lion of house Weißburg. It looks much newer than the other doors NEWLINE
+enddsc
+exit 0 0 SOUTH 0
 name gilded door
-exit 0 0 WEST 1
-name white painted door
-exit 0 1 UP 1
-name grand staircase
-exit 0 1 EAST 1
+startdsc
+A grand white-painted door, with an exquisite inlaid gold pattern, shaped to look like flowers.
+enddsc
+exit 0 0 WEST 2
+name blodied door
+startdsc
+A white-painted door, with traces of blood on the handle. There is a "note" on the door
+enddsc
+item
+1 startname
+note
+endname
+startdsc
+The white-painted door in the west wall has a note attached. NEWLINE NEWLINE The note on the door reads: NEWLINE "While the investigation is going on, the west-wing is off-limits; I shall leave the key in the Pavilion when we are done. NEWLINE -- Sir Jørgen, chief royal inspector in Fredericia".
+enddsc
+exit 0 1 EAST 0
 name hidden servant's door
+startdsc
+A small door, discretely hidden behind the staircase, likely intended for servants.
+enddsc
+exit 0 1 UP 0
+name grand staircase
+startdsc
+A grand staircase, made of carved wood, painted to look like marble.
+enddsc
+item
+    0 startname
+        bloodstain
+    endname
+    startdsc
+        A dried up bloodstain, just below the stair-case. It looks like a few bloodied footprints go towards the west door.
+    enddsc
+
+item
+    0 startname
+        portrait
+    endname
+    startdsc
+        A painting of the late Baroness Josefine Hørby at a young age in a green dress, a plaque below the portrait says "To my dearest Josefine from Henrik, 1718", that is 23 years ago.
+    enddsc
+item
+    0 startname
+        developer message
+    endname
+    startdsc
+        Welcome to the mansion of a Baroness who recently died. You have been hired by her children to find her last will, which is inside her room. NEWLINE NEWLINE Use your Magic Map on the right to slide the room you are in, rooms can only slide along another room, can't overlap, and can't go out of bounds (if a slide doesn't work, this log will tell you why). NEWLINE NEWLINE By the way, you are canonically playing as a sentient Borneo Orangutan. This doesn't have any gameplay implications, I just wanted to mention it.
+    enddsc
+
 endroom
 newroom
 name Grand ballroom
 startdsc
-You are in a big ball-room with a richly decorated baroque ceiling, depicting scenes from Homor's Odyssey mythology.
+You are in a big ball-room with dull-green walls and a richly decorated baroque ceiling, depicting scenes from Homer's Odyssey.
 NEWLINE
 NEWLINE
-The room is illuminated by the light from two giant windows in the south wall
-NEWLINE
-NEWLINE
-From the dull-green walls, 6 faded paintings of former owners of this mansion and their friends looks down on the dance-floor.
-NEWLINE
-NEWLINE
-In the north wall is a grand 2m wide "door A" with a golden leaf-pattern. Next two this stands a very large a rococo vase stands on an Ornamented wood table painted to look like marble.
-NEWLINE
-NEWLINE
-In the east and west walls are two doors "door B" and "door C" with golden leaf-shaped handles.
-NEWLINE
-NEWLINE
-A much more discrete "door D" for servants is placed in the east end of the north wall, behind the vase.
+Items and doors: are 4 doors ("exit A","exit B","exit C","exit D"), a large rococo "vase", 3 paintings of former owners ("duke Pierre" "duke Alfons" and "baroness Josefine"), and the decorated "ceiling"
 enddsc
-x 3
+x 2
 y 3
 floor 0
 blocks 2 3
 1 1 1
 1 1 1
-exit 0 0 NORTH 2
+item
+0 startname
+duke pierre
+endname
+startdsc
+A very faded painting of an elderly nobleman, wearing an admirals uniform, and holding a shield with a sea-horse emblem, standing in front of a bay with several ships in the background. NEWLINE  NEWLINE
+The plaque below the painting reads: Pierre de Lorient, 1650-1712, Duke of Kamsbugt and lord of the admiralty.
+enddsc
+item
+0 startname
+duke alfons
+endname
+startdsc
+A somewhat faded painting of a young nobleman, wearing a captains uniform, standing in the forecastle of a first-rate warship. NEWLINE  NEWLINE
+The plaque below the painting reads: Captain Alfons de Lorient, 1678-1715, Duke of Kamsbugt.
+enddsc
+item
+0 startname
+baroness josefine
+endname
+startdsc
+A painting of the baroness Josefine in a blue dress, standing outside the mansion. NEWLINE  NEWLINE
+The plaque below the painting reads: Baroness Josefine of Hørby. NEWLINE
+enddsc
+item
+0 startname
+ceiling
+endname
+startdsc
+The elegantly carved ceiling depicts several scenes from Homer's Odyssey, in the four corners are engraved shields with a noble house's emblem, though the emblem itself has been removed.
+enddsc
+item
+0 startname
+vase
+endname
+startdsc
+A large elegant rococo vase with illustrations of fish and birds, the side facing the wall has painted an emblem with a sea-horse.
+enddsc
+exit 0 0 NORTH 0
 name gilded door
-exit 1 2 EAST 1
+startdsc
+A grand white-painted door, with an exquisite inlaid gold pattern, shaped to look like flowers.
+enddsc
+exit 1 2 EAST 0
 name green painted door
-exit 1 0 WEST 1
+startdsc
+A dull-green painted door, with a handle shaped like a leaf.
+enddsc
+exit 1 0 WEST 0
 name green painted door
-exit 0 2 NORTH 1
+startdsc
+A dull-green painted door, with a handle shaped like a sea-horse.
+enddsc
+exit 0 2 EAST 0
 name servant's door
+startdsc
+A discrete door, hidden behind the giant Vase, likely intended for servants.
+enddsc
 endroom
 newroom
 name Kitchen
 startdsc
-You are in a dark and scarcely illuminated L-shaped kitchen, a very utilitarian room with very little decorations, other than the richly decorated porcelain plates and bowls and silver cutlery.
+You are in a dark and scarcely illuminated L-shaped kitchen, a very utilitarian room with very little decorations.
 NEWLINE
 NEWLINE
-Though you are surrounded by late 18th century kitchen equipment, you don't want to pick anything up, because programming that would take too long sorry.
-NEWLINE
-NEWLINE
-All the doors in this room are labeled: "door A"is labeled ball-room, "door B" is entrance, "door C" is banquet-hall, and "door D" is gallery. NEWLINE
-... Of course, that is only where these doors normally goes...
+Items and doors: there are 4 doors ("exit A","exit B","exit C","exit D"), there is a "note" placed on the "exit D" door. You are surrounded by early 18th century kitchen equipment, which you don't want to look at it, because programming is slow.
 enddsc
-x 5
+x 4
 y 2
 floor 0
 blocks 2 2
 1 1
 0 1
-exit 0 0 SOUTH 1
+exit 1 1 WEST 0
 name ball-room door
-exit 0 0 WEST 1
+startdsc
+A door with a plaque saying "Ball-room" (at least that was the original direction)
+enddsc
+exit 0 0 WEST 0
 name entrance door
-exit 0 1 North 1
-name gallery door
-exit 1 1 SOUTH 1
+startdsc
+A door with a plaque saying "Entrance" (at least that was the original direction)
+enddsc
+exit 1 1 SOUTH 0
 name banquet door
+startdsc
+A door with a plaque saying "Banquet hall" (at least that was the original direction)
+enddsc
+exit 1 1 EAST 1
+name gallery door
+startdsc
+A door with a plaque saying "Gallery hall". NEWLINE NEWLINE A paper \"note\"
+enddsc
+item
+2 startname
+note
+endname
+startdsc
+The door with a plaque saying "Gallery hall" in the eastern wall has a paper note attached. NEWLINE NEWLINE The note reads:  "I have had enough of you cooking boys spilling food in the gallery; If you need to enter, come to my room in the east wing. NEWLINE If the door being locked prevents you from doing that THAT IS THE ENTIRE POINT  NEWLINE -- Mr Ågesen the Butler"
+enddsc
 endroom
+newroom
+name Pavilion
+key 2
+startdsc
+A small outdoor pavilion normally in front of the entrance. You picked up a key from the wooden table, which was lying on top of a document (GAINED ACCESS TO MORE OF THE MAP).
+NEWLINE
+NEWLINE
+Items and doors: there is 1 door (exit A), there is a "document" on the table
+enddsc
+x 3
+y 0
+floor 0
+blocks 1 1
+1
+item
+4 startname
+document
+endname
+startdsc
+The note on the table reads: NEWLINE
+We conclude that baroness Josefine Hørby accidentally shot herself in the head, after which she tragically stabbed herself in the back 8 times, before tripping and falling to her death down the stairs. After this, she hid the pistol and knife used somewhere.  NEWLINE NEWLINE As the baroness' last will could not be found, her estate passes to King Harald IV. NEWLINE -- Sir Jørgen, chief royal inspector in Fredericia.
+enddsc
+exit 0 0 WEST 0
+name Glass door
+startdsc
+A glass door, normally leading outside
+enddsc
+endroom
+newroom
+name Eastwing
+startdsc
+Your are standing in a room with dozens of hunting trophies.
+NEWLINE NEWLINE
+As an orangutan you feel a great sense of unease seeing this.
+NEWLINE
+NEWLINE
+Items and doors: There are 2 doors ("exit A" and "exit B")  and 1 staircase ("exit C"). Two trophies have plaques: an "antelope", and a "lion".
+enddsc
+item
+0 startname
+antelope
+endname
+startdsc
+The decapitated head of an antelope, the plaque reads: Josefine's first catch, Africa 1728.
+NEWLINE NEWLINE
+As an Orangutan, you are deeply revolted by human barbarism.
+enddsc
+item
+0 startname
+lion
+endname
+startdsc
+A stuffed corpse of a dead lion, the plaque reads: Henrik shot this lion, Africa 1728.
+NEWLINE NEWLINE
+As a fellow endangered species you feel deeply sorry for this poor animal.
+enddsc
+x 5
+y 0
+floor 0
+blocks 2 2
+1 0
+1 1
+exit 1 1 SOUTH 0
+name seahorse-handled door
+startdsc
+A door with a golden handle shaped like a seahorse.
+enddsc
+exit 0 0 EAST 0
+name plain door
+startdsc
+A plain looking door with a plaque next to it saying "Butler Mr Ågesen, please do not disturb"
+enddsc
+exit 1 1 UP 0
+name staircase
+startdsc
+A staircase going to the 1st floor.
+enddsc
+endroom
+newroom
+name Banquet hall
+startdsc
+You are in a banquet hall, dominated by a giant mahogany table, surrounded by dozens of chairs.
+NEWLINE
+The pale-pink north walls is dominated by a giant portrait of the old king Henrik VI. NEWLINE
+NEWLINE
+Items and doors: there are 3 doors ("exit A","exit B","exit C") a "portrait" of the king, and the "table".
+enddsc
+x 5
+y 4
+floor 0
+blocks 1 2
+1 1
+exit 0 0 WEST 0
+name leaf-handled door
+startdsc
+A door with a golden handle shaped like a leaf.
+enddsc
+exit 0 1 NORTH 1
+name seahorse-handled door
+startdsc
+A door with a golden handle shaped like a seahorse.
+enddsc
+exit 0 0 NORTH 0
+name discrete door
+startdsc
+A plain door without any decorations, likely intended for servants
+enddsc
+item
+0 startname
+Table
+endname
+startdsc
+The Mahogany table and chairs have exquisitely carved and gold-encrusted patterns; much of the fine carvings is hidden under the large white table-cloth. NEWLINE NEWLINE
+You lift the tablecloth, and find that it is engraved with fish, warships ships and giant emblem with a sea-horse.
+enddsc
+item
+0 startname
+portrait
+endname
+startdsc
+A very large painting of the former king, Henrik VI on a hunting trip, with a dead dear at his feet and a Musket in his hand.
+NEWLINE NEWLINE
+Though the painting tries to make him look strong and majestic, it fails to hide his advanced age. NEWLINE A plaque below dates this to 1734,  7 years ago.
+enddsc
+endroom
+newroom
+name Gallery
+startdsc
+You are in a gallery room, with several paintings, hanging on pale-pink walls
+NEWLINE
+NEWLINE
+Items and doors: there are 2 doors ("exit A","exit B","exit C"). There are several "paintings" and a "pool-table"
+enddsc
+x 6
+y 2
+floor 0
+blocks 2 1
+1
+1
+item
+0 startname
+pool-table
+endname
+startdsc
+A pool table, with ivory balls.
+NEWLINE
+NEWLINE
+As a fellow endangered species, you feel sorry for the family of the elephant who was murdered for this ivory.
+enddsc
+item
+0 startname
+paintings
+endname
+startdsc
+The paintings show various ships, and foreign lands.
+NEWLINE
+NEWLINE
+The paintings of the ships are dated between 1650 and 1715,  the paintings of lands are dated 1717 and onwards.
+enddsc
+exit 0 0 NORTH 0
+name leaf-handled door
+startdsc
+A door with a golden handle shaped like a leaf.
+enddsc
+exit 1 0 SOUTH 0
+name seahorse-handled door
+startdsc
+A door with a golden handle shaped like a seahorse.
+enddsc
+exit 1 0 WEST 0
+name plain-door
+startdsc
+A plain looking door, likely intended for servants.
+enddsc
+endroom
+newroom
+name Ågesen
+startdsc
+You are in the somewhat plain room of the Butler, mr Ågesen. You picked up the East-wing key from his bedside table (GAINED ACCESS TO MORE OF THE MAP).
+    NEWLINE
+    NEWLINE
+    Items and doors: since this is a bedroom there is only 1 door ("exit A"). A small "portrait" hangs on one of the walls. You notice a "letter" on the bedside table.
+enddsc
+key 1
+x 6
+y 0
+floor 0
+blocks 1 1
+1
+exit 0 0 WEST 0
+name door
+startdsc
+A plain looking door.
+enddsc
+item
+3 startname
+letter
+endname
+startdsc
+The letter reads: my dear stepfather, NEWLINE his majesty king Harald IV has given his blessings to our undertaking, procure the document with haste then meet me and Jørgen in Fredericia. -- Sincerely Peter. NEWLINE NEWLINE
+P.S. I m sending you a copy of the basement key; you can use it to get away. I suggest you hide it in the chapel.
+enddsc
+item
+0 startname
+portrait
+endname
+startdsc
+A somewhat faded painting of the old Duke Alfons de Lorient.
+enddsc
+endroom
+newroom
+name balcony
+startdsc
+    You are on a balcony connecting the 1st floor of the west and east wing. NEWLINE
+    NEWLINE
+    Items and doors: there is a staircase ("exit A") leading down and 2 doors ("exit B","exit C").
+enddsc
+x 2
+y 2
+floor 1
+blocks 1 2
+1 1
+exit 0 1 DOWN 0
+name staircase
+startdsc
+A grand staircase, made of carved wood, painted to look like marble.
+enddsc
+exit 0 0 WEST 2
+name cross handle door
+startdsc
+A white-painted door, with a handle shaped like a cross
+enddsc
+exit 0 1 EAST 1
+name leaf-handled door
+startdsc
+A white-painted door, with a handle shaped like a leaf.
+enddsc
+endroom
+newroom
+name Baroness' room
+startdsc
+    You are in the late Baroness' bedroom. There is a bed-table, under which there is a box (The Baroness' last will is likely in there, Examine this to win)
+    NEWLINE
+    Items and doors: there is one door "Exit A", a "portrait" of the old King Henrik VI, a "newspaper" on the bed-table and a "box" under it.
+enddsc
+exit 0 1 NORTH 0
+name leaf-handled door
+startdsc
+A dull-blue painted door, with a handle shaped like a leaf.
+enddsc
+item
+0 startname
+newspaper
+endname
+startdsc
+A newspaper, dated August 1740, detailing the Coronation of King Harald IV, who recently returned from exile. NEWLINE NEWLINE Another headlines details that Peter de Lorient Duke of Kamsbugt has been appointed lord of the admiralty.
+enddsc
+item
+0 startname
+box
+endname
+startdsc
+You open the drawers, and find the Baroness last will. NEWLINE
+The drawer also contains a copy of the deed to the mansion, and the names and addresses of several Dutch bankers... NEWLINE It looks like the Baroness expected that she might be murdered. NEWLINE NEWLINE Congratulations by the way, YOU WIN!
+enddsc
+item
+0 startname
+portrait
+endname
+startdsc
+A portrait of the old king Henrik VI, standing in front of a palm-tree.
+enddsc
+x 4
+y 3
+floor 1
+blocks 2 2
+1 1
+1 1
+endroom
+newroom
+name Guestroom
+startdsc
+You are in a bedroom, with dull-blue painted walls it looks it is a few years since someone has been here.
+NEWLINE
+NEWLINE
+Items and doors: There is only "Exit A" which you entered through. There is a "portrait" of the baroness on the wall
+enddsc
+item
+0 startname
+portrait
+endname
+startdsc
+A portrait of baroness Josefine Hørby, with an exotic tropical landscape in the background.
+enddsc
+exit 0 0 NORTH 0
+name leaf-handled door
+startdsc
+A dull-blue painted door, with a handle shaped like a leaf.
+enddsc
+x 6
+y 2
+floor 1
+blocks 2 1
+1
+1
+endroom
+newroom
+name East corridor
+startdsc
+    You are in a corridor on the 1st floor, the Baroness' room is here. NEWLINE There are a few portraits on the walls. The wooden floor has a long bloodstain, running from near the baroness room to the door in the west "Exit C".
+    NEWLINE
+    NEWLINE
+    Items and doors: There are 3 doors ("Exit A", "Exit B", "Exit C"), and a staircase ("Exit D"). There are a few "portraits" hanging on the walls. There is a bloodstained "purse" on the floor.
+enddsc
+x 4
+y 1
+floor 1
+blocks 2 3
+0 1 1
+1 1 0
+exit 1 1 SOUTH 4
+name leaf-handled door
+startdsc
+A white-painted door, with a handle shaped like a leaf. Labeled "Baroness Josefine"
+enddsc
+exit 0 2 SOUTH 0
+name leaf-handled door
+startdsc
+A white-painted door, with a handle shaped like a leaf. Labeled "Guest room"
+enddsc
+exit 1 0 WEST 0
+name blood-stained door.
+startdsc
+A white-painted door, with a handle shaped like a leaf. The door has visible blood-stains
+enddsc
+exit 0 2 DOWN 0
+name staircase
+startdsc
+A staircase leading down.
+enddsc
+item
+0 startname
+portraits
+endname
+startdsc
+A few small portraits of people, all of them nobles. There is on one portrait the baroness and one of the old King Henrik VI, and a few of people you do not recognize. NEWLINE NEWLINE
+
+Some of the portraits have been splattered with blood, you notice a bullet hole in the frame of the Kings portrait.
+enddsc
+item
+0 startname
+purse
+endname
+startdsc
+Near the baroness room a blood-stained purse with the initials J.H. is lying open, a bloodstain leads from here to the west door. NEWLINE NEWLINE
+It looks like someone has searched the purse ... maybe they took the Baroness' key. Maybe they left it where came in from.
+enddsc
+endroom
+newroom
+name Chapel
+startdsc
+You are in the mansions chapel. It is a church, with a few benches. You found a key hidden behind the Alter. (UNLOCKED BASEMENT ENTRANCE)
+    NEWLINE
+    NEWLINE
+    Items and doors: There is 1 door ("exit A"). There is an "alter" and 3 biblical paintings: "The teacher", "the question" and "Jesus and Judas".
+enddsc
+item
+    0 startname
+        the question
+    endname
+    startdsc
+        A painting Depicting Saying 13 from the Gnostic gospel of Thomas, where Jesus asks Simon-Peter, Mathew and Thomas who he resembles.
+    enddsc
+item
+    0 startname
+        the teacher
+    endname
+    startdsc
+        A painting where child Jesus slays a Greek teacher using his laser eyes. A much beloved tale from the Infancy Gospel of Thomas
+    enddsc
+item
+    0 startname
+        Jesus and Judas
+    endname
+    startdsc
+        A painting of a scene from the Gnostic Gospel of Judas, there Judas and the spiritual form of Jesus watches the crucifixion of Jesus material form.
+    enddsc
+item
+    0 startname
+        alter
+    endname
+    startdsc
+        One the Alter are written these words from the Gnostic gospel of Thomas: NEWLINE Jesus said: "Come that I may teach you about the things, that no person will see. For there is a great and infinite Realm, whose dimensions no angelic generation could see, which is the Great Invisible Spirit."
+    enddsc
+key 3
+x 0
+y 1
+floor 1
+blocks 4 2
+1 1
+1 1
+1 1
+0 1
+exit 1 1 EAST 0
+name entrance door
+startdsc
+A door leading out of the church
+enddsc
+endroom
+newroom
+name Library
+startdsc
+You are in a library, surrounded by bound leather books on shelves. The room is very dusty, it is a many years since anyone read any of these books. A dusty portrait is standing on the floor next to a bookshelf.
+NEWLINE
+NEWLINE
+Items and doors: there are 3 doors ("Exit A", "Exit B" and "Exit C"), there are "books", a "map" and a "painting".
+enddsc
+item
+0 startname
+map
+endname
+startdsc
+An old map of the Baltic sea, someone has drawn on the map: a blue dotted line labeled "convoy" goes from Lübeck to Karlskrona, a several red arrows intersect the blue line near the Island Fehmarn, the date "April 24 1715" is written there, the largest red arrow is labeled "Admiral Gabel". A smaller arrow is labeled "Captain de Lorient".
+enddsc
+item
+0 startname
+books
+endname
+startdsc
+The dusty books on the shelves are mainly about naval history and sailing techniques.
+enddsc
+item
+0 startname
+portrait
+endname
+startdsc
+A somewhat faded painting of a young boy in noble clothes, next to a young man in a butlers uniform, standing in front of a bay with a ship in the background.
+NEWLINE NEWLINE
+The plaque reads: Peter de Lorient, Duke of Kamsbugt and Mr. Svend Ågesen in 1716.
+NEWLINE
+NEWLINE
+It looks like it has been removed from the ballroom. It is very dusty, must have been taken down many years ago.
+enddsc
+x 0
+y 0
+floor 0
+blocks 2 2
+1 1
+1 1
+exit 1 1 SOUTH 0
+name light red-painted door
+startdsc
+A light red painted door.
+enddsc
+exit 0 1 EAST 0
+name glass door
+startdsc
+A glass door, normally leading out of the mansion near the pavilion.
+enddsc
+exit 1 0 SOUTH 0
+name light red-painted door
+startdsc
+A light red painted door.
+enddsc
+endroom
+newroom
+name Corridor
+startdsc
+A dimly lit corridor inside the west wing. Bloody footprints lead to the door in the south west.
+NEWLINE
+NEWLINE
+Items and doors: There are 4 doors "Exit A", "Exit B", "Exit C" and "Exit D". There is a "note" placed on the south-west door "exit C".
+enddsc
+x 1
+y 2
+floor 0
+blocks 3 1
+1
+1
+1
+exit 0 0 NORTH 0
+name leaf handled door
+startdsc
+A door with a golden leaf shaped handle.
+enddsc
+exit 0 0 EAST 0
+name sea-horse handled door
+startdsc
+A door with a golden sea-horse shaped handle.
+enddsc
+exit 0 0 WEST 0
+name plain door
+startdsc
+A door with a plain looking handle
+enddsc
+exit 2 0 WEST 3
+name bloodied door
+startdsc
+A door, with some faint traces of blood and dirt on the handle. NEWLINE
+NEWLINE A note on the door reads: "The Basement key has gone missing, I am looking for it -- Mr. Ågesen, the Butler."
+enddsc
+item
+    0 startname
+        note
+    endname
+    startdsc
+        A note is placed on the south-western door, which has some faint traces of blood and dirt on the handle. NEWLINE
+        NEWLINE A note on the door reads: "The Basement key has gone missing, I am looking for it -- Mr. Ågesen, the Butler."
+    enddsc
+exit 2 0 EAST 2
+name sea-horse handled door
+startdsc
+A door, with a handle shaped like a sea-horse.
+enddsc
+endroom
+newroom
+name Study
+startdsc
+A messy study room, torn pages are strewn all over the floor, someone has clearly searched through the room for something.
+NEWLINE
+NEWLINE
+Items and doors: There are 2 doors "Exit A", "Exit B". There is an open "book" on the table.
+enddsc
+x 0
+y 2
+floor 0
+blocks 2 1
+1
+1
+exit 0 0 NORTH 0
+name leaf handled door
+startdsc
+A door with a golden leaf shaped handle.
+enddsc
+exit 0 0 EAST 0
+name plain door
+startdsc
+A plain looking door
+enddsc
+item
+    0 startname
+        book
+    endname
+    startdsc
+        The book looks to contain some deeds for the mansion, and economic records... NEWLINE NEWLINE
+        Before 1717 the mansion was owned by the de Lorient family... the deed related to house Hørby have been ripped out NEWLINE NEWLINE The economic records look strange, the Baroness had no income since July 1740, and it also looks like someone were funnelling away money.
+    enddsc
+endroom
+newroom
+name B.
+startdsc
+You are in a little room, with a stair going into the basement. Bloody footprints lead down the stairs. There is a lot of dirt on the floor as well.
+NEWLINE
+NEWLINE
+Items and doors: there is 1 door ("exit A") and a staircase ("exit B"). There is a "pistol" and bloody "knife" lying on the floor.
+enddsc
+x 0
+y 4
+floor 0
+blocks 1 1
+1
+item
+0 startname
+pistol
+endname
+startdsc
+A pistol with gunpowder residue in the barrel.
+enddsc
+item
+0 startname
+knife
+endname
+startdsc
+A knife whose blade is covered in dried blood.
+enddsc
+exit 0 0 EAST 0
+name dirty door
+startdsc
+A door with lot of dirt around it
+enddsc
+exit 0 0 DOWN 0
+name basement ladder
+startdsc
+A staircase leading down into the basement.
+enddsc
+endroom
+newroom
+name Basement
+key 4
+startdsc
+You are in the basement, there is a hole in the west wall. Piles of dirt litter the floor. You found the key to the Baroness' room just inside the hole. (GAINED ACCESS TO BARONESS' ROOM)
+NEWLINE
+NEWLINE
+Items and doors: there is a staircase ("exit A"). There is a "hole" in the wall
+enddsc
+x 0
+y 3
+floor -1
+blocks 2 2
+1 1
+1 1
+item
+0 startname
+hole
+endname
+startdsc
+There is a man-sized hole in the basement wall... it leads into a long dark tunnel.
+enddsc
+exit 1 0 UP 0
+name basement ladder
+startdsc
+A staircase leading out of the basement.
+enddsc
+endroom
+
+hintstart
+Keys are not shown on the map, try to "examine" items, especially letters, and notes, especially on doors. Finding clues to keys unlock more hints.
+hintend
+
+hintstart
+There is a key in the Pavilion... but there doesn't seem to be any way to slide to there now. Maybe unlocking the east-wing could help... maybe there are clues elsewhere. NEWLINE NEWLINE If you are stuck, there is one possible walkthrough in the file readme.md or readme.pdf or on the game's page on Itch.io.
+hintend
+
+hintstart
+The Butler has the east-wing key in his room. NEWLINE NEWLINE The east wing is closed, but it looks like the east door in the entrance could fit onto the gallery, we just need to get the kitchen and ballroom out of the way. NEWLINE NEWLINE If you are stuck, there is one possible walkthrough in the file readme.md or readme.pdf or on the game's page on Itch.io.
+hintend
+
+hintstart
+The key to the basement is in the chapel, but it is in the west wing. You need to find the key to that in the Pavilion... you can use the west door in the Kitchen to enter the west-wing corridor. To do that you need to get the entrance and ball-room out of the way. NEWLINE NEWLINE you WILL need to use both floors to move yourself around, do remember that if you move the stairs downstairs you also have to move them upstairs NEWLINE NEWLINE If you are stuck, there is one possible walkthrough in the file readme.md or readme.pdf or on the game's page on Itch.io.
+hintend
+
+
+hintstart
+The key to the Baroness' room is in the Basement, get the key to that from the chapel, then get to her room. You should soon have access to all rooms, there are multiple ways to win from here. NEWLINE NEWLINE If you are stuck, there is one possible walkthrough in the file readme.md or readme.pdf or on the game's page on Itch.io.
+hintend
+
