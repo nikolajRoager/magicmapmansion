@@ -21,41 +21,57 @@ You are using the building plans, of a building to explore the building, and rea
 
 How to play a terminal game
 ------------
-If the folder `build` has been included in the download DO NOT RUN THE BINARIES IN THERE. It is a temporary debugging build made for Linux DO NOT RUN ON WINDOWS. the `build` folder should not have been part of the upload.
+You have to run this game in your terminal (Windows, Mac and Linux instructions for how to turn on the game below).
 
-You have to run this game in your terminal (Windows, Mac and Linux instructions for how to turn on the game).
+The Code does support unicode, and the default version of the game (`magicmapmansion_WINDOWS.exe`) do use non-ascii characters: æ, ø, å, ß, ¤.
 
-This is not an ASCII game: The game uses and supports Unicode characters. You need to make sure that your terminal is using a font, which at the very least support these characters: æ, ø, å, ß, ¤. You also need to make sure your terminal is using a MONOSPACED font: i.e. a font where all characters have the same width and height. Otherwise the display will be all messed up.
+When you run the game, you can see if it works. The north-east room in the mansion belongs to mr Ågesen, If his name does not start with an A with an o above it, your terminal or font doesn't support these characters. In that case you should use `magicmapmansion_WINDOWS_english.exe` instead, this is identical, except it does not use non-ascii characters.
 
-You also need to make sure that your terminal has the correct size for the game to work.
+Almost all terminals (on Linux and Mac) support these characters, while most terminals on Windows don't. (If you want to install a third party terminal, git-bash does support it on windows)
 
-The Linux version IS the superior version (it supports automatic terminal resize detection), and Linux terminals are generally better than Windows terminals.
-
+You also need to make sure your terminal is using a MONOSPACED font: i.e. a font where all characters have the same width and height. Otherwise the display will be all messed up. But most terminals (even on Windows) do that by default.
 
 
 Starting the game on Windows 10
 --------
 I have not tested windows 11.
 
-You have to run this game in a terminal, on windows 10 I recommend windows powershell (bundled with Windows 10). I recommend changing the background color to black, rather than the default blue if you haven't already.
+The Windows version is inferior to the Linux version (Because Linux is better at terminal stuff), but it does still work.
 
-THE WINDOWS VERSION DO NOT SUPPORT AUTOMATIC SIZE DETECTION! (The Linux version does, because Linux is better at terminals than windows)
+First step, after downloading the folder with `magicmapmansion_WINDOWS.exe` is to open a terminal in that folder. Here is how to do that using the terminal PowerShell on Windows.
+
+Method 1: Open the folder in a window in file-explore (or whatever it is called, I am not a windows person), press ctrl+l to highlight the path. Type `powershell` in the textfield (this deletes the path from the field, that is fine). Powershell should open automaticall in the folder. You can tell that if the text before the flashing cursor says: `PS C:\users\yourname\DownloadsOrWherever\magicmapmansion>`
+
+Method 2: Open powershell, by default it opens in your root folder: The text before the flashing cursor should say:
+
+`PS C:\users\yourname>`
+
+now you can enter other folders by writing `cd .\foldername\`. If you have the folder in your downloadfolder, type `cd .\Downloads\` and then `cd .\magicmapmansion\` (Pressing TAB may autocomplete).
+
+ By the way, if you have git-bash installed I do recommend that over PowerShell, but PowerShell should be installed on all Windows 10 computers.
+
+Now you can start the game, the windows version does not support automatic size-detection of the terminal, so you will have to manually adjust it.
+
+In POWERSHELL You can do this by right-clicking the top bar of the window and clicking properties, then click the tab layout. Look at the box labeled "window size", you can read the width and height here (make sure the width is greater than 106, and height is greater than 34). For example, on my Windows testing computer a full-screen powershell has width 189 height 44.
+
+Now close the properties windows and type
+
+If you type `.\magicmapmansion_WINDOWS.exe 44 189`  or (`.\magicmapmansion_WINDOWS.exe 44 189`), the game will start with this size. (Obviously you need to replace 44 and 189 with your height and your width, the height goes before the width)
+
+you COULD also start the game you can doubleclick `magicmapmansion_WINDOWS.exe`, but I do not recommend that, as it uses the very small minimum size.
+
+On Linux, the size would have been spotted automatically
 
 
 
-The included executable `maptrial.exe` should work on Windows.
 
-... TEMP
+You can also recompile the C++ code. But I don't know if that is possible on Windows. I have only compiled this on Linux (using mingw to compile a Windows executable on Linux).
 
-You can also recompile the C++ code.
-
-I use only C++ standard libraries (plus windows or unix libraries to get Terminal size) so you only need a C++ compiler, I have used MinGW's Windows port of the Gnu G++ compiler. I do not know if Visual Studio compilers work.
-
-I do not know if the included CMakelist.txt file allows CMake can compile it on windows, I have only used in on Linux.
+If you know how CMake works, you could try to compile it.
 
 Starting the game on Linux (or Mac)
 --------
-So you have realized that Windows is bad! Great! To show your superiority over Windows users, you will have to compile the C++ code, I use standard libraries (plus windows or unix libraries to get Terminal size) so you only need a compiler, I used g++. You should also have CMake installed, to build the project.
+So you have realized that Windows is bad! Great! To show your superiority over Windows users, you will have to compile the C++ code, I use standard libraries (plus unix libraries to get Terminal size) so you only need a compiler, I used g++. You should also have CMake installed, to build the project.
 
 The game is made and tested on Arch Linux, I do not own a Mac, but Mac and Linux are very similar under the hood so the Linux code should compile and run on Mac.
 
