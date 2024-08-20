@@ -3,6 +3,8 @@
 #include <iostream>
 namespace skripler
 {
+
+    using uint = uint32_t;
     size_t truelength(const std::string& s)
     {
         return (s.length() - std::count_if(s.begin(), s.end(), [](char c)->bool { return (c & 0xC0) == 0x80; }));

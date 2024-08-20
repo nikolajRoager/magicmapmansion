@@ -26,7 +26,6 @@ target_link_libraries(Tile textTools)
 target_link_libraries(Tile Texture)
 
 target_link_libraries(skripler Texture)
-target_link_libraries(skripler Tile)
 target_link_libraries(skripler textTools)
 target_link_libraries(skripler pthread)
 

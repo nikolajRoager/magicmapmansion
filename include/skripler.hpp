@@ -14,5 +14,7 @@ namespace skripler
     //Join the above threads
     void end();
 
+    void printWH();
+
     std::vector<std::string> getCommands();
 }

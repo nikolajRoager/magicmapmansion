@@ -60,6 +60,12 @@ namespace skripler
 
         return (w!=prev_w || h!=prev_h);
     }
+    //Does not require Skripler beeing started, test that get windows size works
+    void printWH()
+    {
+        get_window_size();
+        std::cout<<"Window height "<<h<<" width "<<w<<std::endl;
+    }
 
     void display()
     {
